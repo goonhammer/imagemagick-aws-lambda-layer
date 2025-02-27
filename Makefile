@@ -156,6 +156,7 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--with-jpeg=yes \
 		--with-png=yes \
 		--with-xml=yes \
+		--with-fontconfig=yes \
 		--with-freetype=yes \
 		--disable-openmp
 	make clean
