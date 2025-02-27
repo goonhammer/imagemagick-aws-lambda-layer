@@ -141,20 +141,21 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		./configure \
 		CPPFLAGS=-I$(CACHE_DIR)/include \
 		LDFLAGS=-L$(CACHE_DIR)/lib \
-		--disable-dependency-tracking \
-		--disable-shared \
-		--enable-static \
 		--prefix=$(TARGET_DIR) \
+		--enable-shared=no \
+		--enable-static \
 		--enable-delegate-build \
+		--disable-dependency-tracking \
 		--without-modules \
-		--disable-docs \
-		--without-magick-plus-plus \
 		--without-perl \
 		--without-x \
-		--with-freetype=yes \
-		--disable-openmp \
-		--enable-shared=no \
-		--enable-hdri=no
+		--without-magick-plus-plus \
+		--enable-hdri=no \
+		--disable-docs \
+		--with-jpeg=yes \
+		--with-png=yes \
+		--with-xml=yes \
+		--with-freetype=yes
 	make clean
 	make all LDFLAGS="-all-static"
 	make install
