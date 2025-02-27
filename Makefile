@@ -151,10 +151,12 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--without-magick-plus-plus \
 		--without-perl \
 		--without-x \
-		--with-freetype=yes
-		--disable-openmp
+		--with-freetype=yes \
+		--disable-openmp \
+		--enable-shared=no \
+		--enable-hdri=no \
 	make clean
-	make all
+	make all LDFLAGS="-all-static"
 	make install
 
 libs: $(LIBS)
