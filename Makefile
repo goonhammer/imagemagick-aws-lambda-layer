@@ -156,7 +156,8 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--with-jpeg=yes \
 		--with-png=yes \
 		--with-xml=yes \
-		--with-freetype=yes
+		--with-freetype=yes \
+		--disable-openmp
 	make clean
 	make all LDFLAGS="-all-static"
 	make install
