@@ -143,6 +143,7 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		LDFLAGS=-L$(CACHE_DIR)/lib \
 		--prefix=$(TARGET_DIR) \
 		--enable-shared=no \
+		--disable-shared \
 		--enable-static \
 		--enable-delegate-build \
 		--disable-dependency-tracking \
