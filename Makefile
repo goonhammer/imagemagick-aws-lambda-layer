@@ -151,6 +151,7 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--without-magick-plus-plus \
 		--without-perl \
 		--without-x \
+		--with-freetype=yes
 		--disable-openmp
 	make clean
 	make all
