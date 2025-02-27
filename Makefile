@@ -154,7 +154,7 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--with-freetype=yes \
 		--disable-openmp \
 		--enable-shared=no \
-		--enable-hdri=no \
+		--enable-hdri=no
 	make clean
 	make all LDFLAGS="-all-static"
 	make install
