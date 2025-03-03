@@ -132,6 +132,19 @@ $(CACHE_DIR)/lib/freetype2.a: $(FREETYPE_SOURCE)
 	make
 	make install
 
+# ghostscript
+GS_SOURCE=gs10040.tar.gz
+
+$(GS_SOURCE): 
+	curl -L https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10040/ghostpdl-10.04.0.tar.gz -o $(GS_SOURCE)
+
+$(CACHE_DIR)/lib/gslib.a: $(GS_SOURCE)
+	tar xf $<
+	cd gs*
+	$(CONFIGURE)	 
+	make libgs
+	make install
+
 ## ImageMagick
 
 IMAGE_MAGICK_SOURCE=ImageMagick-$(IMAGEMAGICK_VERSION).tar.gz
@@ -146,6 +159,7 @@ LIBS:=$(CACHE_DIR)/lib/libjpeg.a \
 	$(CACHE_DIR)/lib/libtiff.a \
 	$(CACHE_DIR)/lib/libbz2.a \
 	$(CACHE_DIR)/lib/freetype2.a \
+	$(CACHE_DIR)/lib/gslib.a \
 	$(CACHE_DIR)/lib/libwebp.a
 
 $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
