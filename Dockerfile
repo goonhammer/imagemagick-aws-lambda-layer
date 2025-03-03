@@ -1,4 +1,4 @@
-FROM public.ecr.aws/sam/build-nodejs18.x:latest
+FROM public.ecr.aws/sam/build-nodejs22.x:latest
 
 WORKDIR /build
 
@@ -7,6 +7,8 @@ COPY Makefile ./
 RUN yum update -y
 RUN yum groupinstall -y "Development Tools"
 RUN yum install -y cmake
+RUN yum install -y fontconfig
+RUN yum install -y freetype
 
 RUN make all
 
