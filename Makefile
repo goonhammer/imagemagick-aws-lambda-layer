@@ -171,11 +171,10 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		LDFLAGS=-L$(CACHE_DIR)/lib \
 		--prefix=$(TARGET_DIR) \
 		--enable-shared=no \
-		--disable-shared \
 		--enable-static \
 		--enable-delegate-build \
 		--disable-dependency-tracking \
-		--with-modules \
+		--without-modules \
 		--without-perl \
 		--without-x \
 		--without-magick-plus-plus \
@@ -184,9 +183,9 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--with-jpeg=yes \
 		--with-png=yes \
 		--with-xml=yes \
-		--with-ghostscript \
-		--with-fontconfig=yes \
 		--with-freetype=yes \
+		--with-ghostscript=yes \
+		--with-fontconfig=yes \
 		--disable-openmp
 	make clean
 	make all LDFLAGS="-all-static"
