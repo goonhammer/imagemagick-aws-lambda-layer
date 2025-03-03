@@ -161,7 +161,7 @@ $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
 		--enable-static \
 		--enable-delegate-build \
 		--disable-dependency-tracking \
-		--without-modules \
+		--with-modules \
 		--without-perl \
 		--without-x \
 		--without-magick-plus-plus \
