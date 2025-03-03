@@ -9,6 +9,7 @@ RUN yum groupinstall -y "Development Tools"
 RUN yum install -y cmake
 RUN yum install -y fontconfig
 RUN yum install -y freetype
+RUN yum install -y ghostscript
 
 RUN make all
 
