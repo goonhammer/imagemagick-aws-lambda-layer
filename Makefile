@@ -140,7 +140,7 @@ $(GS_SOURCE):
 
 $(CACHE_DIR)/lib/gslib.a: $(GS_SOURCE)
 	tar xf $<
-	cd gs*
+	cd ghostpdl-*
 	$(CONFIGURE)	 
 	make libgs
 	make install
