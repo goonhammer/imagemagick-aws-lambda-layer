@@ -118,6 +118,19 @@ $(CACHE_DIR)/lib/libopenjp2.a: $(OPENJP2_SOURCE) $(CACHE_DIR)/lib/libpng.a $(CAC
 	make clean
 	make install
 
+# libfreetype
+FREETYPE_SOURCE=freetype-2.10.1.tar.gz
+
+$(FREETYPE_SOURCE):
+	curl -L http://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz -o $(FREETYPE_SOURCE)
+
+$(CACHE_DIR)/lib/freetype2.a: $(FREETYPE_SOURCE)
+	tar xf $<
+	cd freetype-*
+	sh autogen.sh
+	$(CONFIGURE)	 
+	make
+	make install
 
 ## ImageMagick
 
@@ -132,6 +145,7 @@ LIBS:=$(CACHE_DIR)/lib/libjpeg.a \
 	$(CACHE_DIR)/lib/libopenjp2.a \
 	$(CACHE_DIR)/lib/libtiff.a \
 	$(CACHE_DIR)/lib/libbz2.a \
+	$(CACHE_DIR)/lib/freetype2.a \
 	$(CACHE_DIR)/lib/libwebp.a
 
 $(TARGET_DIR)/bin/identify: $(IMAGE_MAGICK_SOURCE) $(LIBS)
